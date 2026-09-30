@@ -1,6 +1,15 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <!--
+    React Native's debug build type merges in SYSTEM_ALERT_WINDOW (dev-mode error
+    overlay) and ACCESS_LOCAL_NETWORK (Metro dev server access), both of which
+    Stripe's Terminal app review disallows. Strip them from the merged manifest.
+    -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" tools:node="remove" />
+    <uses-permission android:name="android.permission.ACCESS_LOCAL_NETWORK" tools:node="remove" />
 
     <application
       android:name=".MainApplication"
